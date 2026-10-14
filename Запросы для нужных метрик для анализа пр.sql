@@ -7,13 +7,13 @@ SELECT
     COUNT(DISTINCT invoiceno) AS total_orders,
     COUNT(DISTINCT customerid) AS unique_customers,
     SUM(revenue) AS total_revenue,
-    ROUND(AVG(revenue), 2) AS avg_order_value,
+    ROUND(SUM(revenue) / COUNT(DISTINCT invoiceno), 2) AS avg_order_value,
     ROUND(SUM(revenue) / COUNT(DISTINCT customerid), 2) AS revenue_per_customer
 FROM clean_orders;
 
  total_orders | unique_customers | total_revenue | avg_order_value | revenue_per_customer
 --------------+------------------+---------------+-----------------+----------------------
-        18532 |             4338 |   8911407.904 |           22.40 |              2054.27
+        18532 |             4338 |   8911407.904 |           480.87 |              2054.27
 
 2. Топ-10 товаров по выручке:
 
