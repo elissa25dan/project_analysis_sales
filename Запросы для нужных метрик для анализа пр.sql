@@ -86,19 +86,19 @@ SELECT
     END AS day_name,
     ROUND(SUM(revenue), 2) AS revenue,
     COUNT(DISTINCT invoiceno) AS orders,
-    ROUND(AVG(revenue), 2) AS avg_check
+    ROUND(SUM(revenue) / COUNT(DISTINCT invoiceno), 2) AS avg_check
 FROM clean_orders
 GROUP BY day_of_week
 ORDER BY day_of_week;
 
   day_name   |  revenue   | orders | avg_check
 -------------+------------+--------+-----------
- Воскресенье |  792514.22 |   2169 |     12.63
- Понедельник | 1367146.41 |   2863 |     21.07
- Вторник     | 1700634.63 |   3184 |     25.58
- Среда       | 1588336.17 |   3455 |     23.06
- Четверг     | 1976859.07 |   4032 |     24.70
- Пятница     | 1485917.40 |   2829 |     27.10
+ Воскресенье |  792514.22 |   2169 |    365.38
+ Понедельник | 1367146.41 |   2863 |    477.53
+ Вторник     | 1700634.63 |   3184 |    534.12
+ Среда       | 1588336.17 |   3455 |    459.72
+ Четверг     | 1976859.07 |   4032 |    490.29
+ Пятница     | 1485917.40 |   2829 |    525.24
 
 5. Топ-5 стран по выручке:
 
